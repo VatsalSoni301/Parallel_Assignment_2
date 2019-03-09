@@ -3,3 +3,43 @@
 	12.658625/2.450044 = 5.16
 
 2) Compare static, dynamic, and guided scheduling with chunk sizes 100 and 200. Which is better?
+
+
+	Threads Time 	Scheduling ChunkSize
+	1	13.5455	Guided		100
+	2	7.0965	Guided		100
+	4	3.675	Guided		100
+	6	2.6595	Guided		100
+
+	1	13.688	Guided		200
+	2	6.974	Guided		200
+	4	3.724	Guided		200
+	6	20721	Guided		200
+	
+	1	13.308	Static		100
+	2	6.91	Static		100
+	4	3.551	Static		100
+	6	2.659	Static		100
+	
+	1	13.032	Static		200
+	2	6.90	Static		200
+	4	3.474	Static		200
+	6	2.661	Static		200
+
+	1	13.417	Dynamic		100
+	2	6.980	Dynamic		100
+	4	3.622	Dynamic		100		
+	6	2.568	Dynamic		100
+
+	1	13.374	Dynamic		200
+	2	7.055	Dynamic		200
+	4	3.761	Dynamic		200
+	6	2.799	Dynamic		200
+
+	Conclusion:
+
+	Guided is performing Worst For 100 chunk size
+	Static and dynamic are taking almost same time
+
+	For 200 chunk size
+	Execution order - guided > dynamic > static
