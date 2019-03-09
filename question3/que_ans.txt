@@ -38,8 +38,9 @@
 
 	Conclusion:
 
-	Guided is performing Worst For 100 chunk size
+	For 100 chunk size
+	Guided is performing Worst 
 	Static and dynamic are taking almost same time
 
 	For 200 chunk size
-	Execution order - guided > dynamic > static
+	Execution order:- guided > dynamic > static
