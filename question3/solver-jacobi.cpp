@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include<omp.h>
+#define THREADS 4
 using namespace std;
 extern double eps;
 extern double **New_Matrix(int m, int n);
@@ -9,6 +10,7 @@ extern void Delete_Matrix(double **matrix);
 int solver(double **a, int n)
 {
 	int i,j;
+	int chunk=100;
 	double h;
 	double diff;
 	int k = 0;
@@ -23,7 +25,8 @@ int solver(double **a, int n)
 			do 
 			{
 						diff = 0;
-						#pragma omp parallel for shared(n,b,a) private(i,j) reduction(max:diff)
+						// #pragma omp parallel for  
+						#pragma omp parallel for schedule(dynamic,chunk) shared(n,b,a) private(i,j) reduction(max:diff) num_threads(THREADS)
 						for (i=1; i<n-1; i++) 
 						{
 							for (j=1; j<n-1; j++) 
